@@ -3,7 +3,7 @@ import ButtonCounter from '../components/buttonCounter'
 import Context from './context'
 
 const Counter = () => {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
 
   const getBageclasses = () => {
     let classes = ' badge m-2 bg-'
