@@ -17,13 +17,12 @@ const ButtonCounter = (props) => {
   }
 
   return (
-      <button
-        onClick={actionClick[props.actionButton.action]}
-        className='btn btn-secondary'
-        style={{ fontSize: '2rem', margin: '.5em'}}
-      >
-        {props.actionButton.nameButton}
-      </button>
+    <button
+      onClick={actionClick[props.actionButton.action]}
+      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded w-2 h-auto flex align-middle justify-center mx-1'
+    >
+      {props.actionButton.nameButton}
+    </button>
   )
 }
 

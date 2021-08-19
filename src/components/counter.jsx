@@ -6,7 +6,8 @@ const Counter = () => {
   const [count, setCount] = useState(0)
 
   const getBageclasses = () => {
-    let classes = ' badge m-2 bg-'
+    let classes =
+      ' rounded-full h-14 w-14 flex items-center justify-center text-white font-bold bg-'
     classes += count === 0 ? 'danger' : 'primary'
     return classes
   }
