@@ -7,6 +7,7 @@ const ButtonCounter = (props) => {
   const handleIncrement = () => {
     setCount(count + 1)
   }
+  
   const handleDecrement = () => {
     setCount(count > 0 ? count - 1 : 0)
   }
@@ -19,7 +20,7 @@ const ButtonCounter = (props) => {
   return (
     <button
       onClick={actionClick[props.actionButton.action]}
-      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded w-2 h-auto flex align-middle justify-center mx-1'
+      className='flex justify-center w-2 h-auto px-4 py-3 mx-1 font-bold text-white align-middle bg-blue-500 rounded hover:bg-blue-700'
     >
       {props.actionButton.nameButton}
     </button>
