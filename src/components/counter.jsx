@@ -1,38 +1,40 @@
-import React, { useState } from 'react'
-import ButtonCounter from '../components/buttonCounter'
-import Context from './context'
+import React from 'react'
 
-const Counter = () => {
-  const [count, setCount] = useState(0)
-
-  const getBageclasses = () => {
+const Counter = (props) => {
+  const getBageClasses = () => {
     let classes =
       ' rounded-full h-14 w-14 flex items-center justify-center text-white font-bold bg-'
-    classes += count === 0 ? 'danger' : 'primary'
+    classes += props.value === 0 ? 'danger' : 'primary'
     return classes
   }
 
-  const actionButtonIncrement = {
-    action: 'increment',
-    nameButton: '+',
-  }
-
-  const actionButtonDecrement = {
-    action: 'decrement',
-    nameButton: '-',
-  }
-
   return (
-    <Context.Provider value={{ count, setCount }}>
-      <>
-        <span className={getBageclasses()} style={{ fontSize: '2rem' }}>
-          {count}
+    <>
+      <h4 className='mr-2'>{props.name}</h4>
+      <div className='flex mb-4'>
+        <span className={getBageClasses()} style={{ fontSize: '2rem' }}>
+          {props.value}
         </span>
-
-        <ButtonCounter actionButton={actionButtonIncrement} />
-        <ButtonCounter actionButton={actionButtonDecrement} />
-      </>
-    </Context.Provider>
+        <button
+          onClick={()=>props.onIncrement(props.id)}
+          className='flex justify-center w-2 h-auto px-4 py-3 mx-1 font-bold text-white align-middle bg-blue-500 rounded hover:bg-blue-700'
+        >
+          {'+'}
+        </button>
+        <button
+          onClick={()=>props.onDecrement(props.id)}
+          className='flex justify-center w-2 h-auto px-4 py-3 mx-1 font-bold text-white align-middle bg-blue-500 rounded hover:bg-blue-700'
+        >
+          {'-'}
+        </button>
+        <button
+          className='flex justify-center w-2 h-auto px-4 py-3 mx-1 font-bold text-white align-middle bg-red-400 rounded hover:bg-red-500'
+          onClick={() => props.onDelete(props.id)}
+        >
+          {'x'}
+        </button>
+      </div>
+    </>
   )
 }
 
