@@ -31,6 +31,7 @@ const Counters = () => {
     }, [])
     setCounters(newCounters)
   }
+
   const handleDecrement = (counterId) => {
     const newCounters = counters.reduce((acc, counter) => {
       if (counter.id === counterId) {
@@ -44,9 +45,10 @@ const Counters = () => {
 
   return (
     <div className='flex flex-col'>
-      <button onClick={handleReset} className='btn btn-primary btn-sm m2'>
+      <button onClick={handleReset} className='mb-8 btn btn-primary btn-sm'>
         Reset
       </button>
+      
       {counters.map((counter) => (
         <Counter
           key={counter.id}
